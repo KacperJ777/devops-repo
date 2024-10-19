@@ -3,8 +3,8 @@
 
 # Automate backup of directory, keeping only last 7 backups
 date=$(date +"%H_%M_%S")
-destination="/home/kacperjozwiak/bash-inter-2/backup_restore/backuped_dirs"
-files_in_dest_num=$(find /home/kacperjozwiak/bash-inter-2/backup_restore/backuped_dirs -type f | wc -l)
+destination="/path"
+files_in_dest_num=$(find /path -type f | wc -l)
 
 printf "Provide directory for backup "
 read dir_to_backup
@@ -15,7 +15,7 @@ then
 else
         tar -czf archive_$date.tar.gz $dir_to_backup
         printf "Directory has been compressed\n"
-        mv archive_$date.tar.gz /home/kacperjozwiak/bash-inter-2/backup_restore/backuped_dirs
+        mv archive_$date.tar.gz /path
         if [[ -f $destination/archive_$date.tar.gz ]]
         then
                 printf "Compressed file is moved and exist in destination"
