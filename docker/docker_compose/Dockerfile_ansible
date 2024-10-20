@@ -1,0 +1,9 @@
+FROM jenkins/jenkins
+
+USER root
+
+# Update the package list and install Ansible
+RUN apt-get update && \
+    apt-get install -y ansible
+
+USER jenkins
